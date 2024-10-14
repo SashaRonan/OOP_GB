@@ -1,7 +1,5 @@
 package Lesson_01.Ex003;
 
-import java.awt.*;
-
 public class Program {
 //    static double distance(Point2D a, Point2D b) {
 //        return Math.sqrt(Math.pow(a.getX() - b.getX(), 2) + Math.pow(a.getY() - b.getY(), 2));
