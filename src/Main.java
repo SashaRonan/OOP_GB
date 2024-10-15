@@ -1,12 +1,16 @@
+import Homeworks.Homework_01.FamilyTree;
+import Homeworks.Homework_01.Person;
 import Seminar_01.Ex001.Bottle;
 import Seminar_01.Ex001.Dispensing_Machine;
 import Seminar_01.Ex001.Product;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
         /*region Lesson_01 */
-//        Product product = new Product("Бутылка", 110.5);
+
 ////        product.setName("Бутылка");
 ////        product.setPrice(110.5);
 //
@@ -34,7 +38,26 @@ public class Main {
         /*region Homework_01 */
 
 
+        FamilyTree familyTree = new FamilyTree();
+// Создаем людей
+        Person john = new Person("John", 1950);
+        Person mary = new Person("Mary", 1955);
+        Person susan = new Person("Susan", 1980);
+// Устанавливаем родительские связи
+        susan.setMother(mary);
+        susan.setFather(john);
+        john.addChild(susan);
+        mary.addChild(susan);
+// Добавляем людей в древо
+        familyTree.addPerson(john);
+        familyTree.addPerson(mary);
+        familyTree.addPerson(susan);
+// Пример получения всех детей Джона
+        List<Person> johnsChildren = familyTree.getChildren(john);
+        for (Person child : johnsChildren) {
+            System.out.println("John's child: " + child.getName());
+        }
+    }
 
 
     }
-}
