@@ -5,6 +5,7 @@ out/
 .idea
 oop_java.iml
 .gitignore
+familyTree.dat
 
 ### Eclipse ###
 .apt_generated

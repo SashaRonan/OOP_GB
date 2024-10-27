@@ -1,4 +1,3 @@
-
 package Homeworks.Homework_03.service;
 
 import Homeworks.Homework_03.model.FamilyTree;
@@ -12,4 +11,3 @@ public interface FileOperations {
     FamilyTree loadFromFile(String fileName) throws IOException,
             ClassNotFoundException;
 }
-
