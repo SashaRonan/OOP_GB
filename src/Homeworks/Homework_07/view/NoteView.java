@@ -5,5 +5,5 @@ import Homeworks.Homework_07.model.Note;
 import java.util.List;
 
 public interface NoteView {
-    void displayNote(List<Note> notes);
+    void displayNotes(List<Note> notes);
 }

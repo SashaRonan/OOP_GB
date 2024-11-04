@@ -8,10 +8,10 @@ public class Note implements Serializable {
     private Author author;
     private LocalDateTime time;
 
-    public Note(String text, Author author, LocalDateTime time) {
+    public Note(String text, Author author) {
         this.text = text;
         this.author = author;
-        this.time = time;
+        this.time = LocalDateTime.now();
     }
 
     public String getText() {

@@ -32,13 +32,13 @@ public class NotesPresenter {
     }
 
     public void addNote(String text, Author author, LocalDateTime time) {
-        Note note = new Note(text, author, time);
+        Note note = new Note(text, author);
         notebook.addNote(note);
         messageView.showMessage("Added notes" + text);
     }
 
     public void showAllNotes() {
-        noteView.displayNote(notebook.getNotes());
+        noteView.displayNotes(notebook.getNotes());
     }
 
     public void sortNotesByAuthor() {
