@@ -13,7 +13,7 @@ public class CommandHandler {
 
     public void handleUserInput() {
         while (true) {
-            view.showMessage("Enter command (add, list, sortByName, sortByBirthYear, save, load, exit):");
+            view.showMessage("Enter command (add, list, sortByAuthor, sortByTime, getNotesForDay, getNotesForWeek(, save, load, exit):");
             String command = view.getUserInput();
             presenter.handleCommands(command);
         }

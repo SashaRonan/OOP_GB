@@ -12,6 +12,7 @@ import Homeworks.Homework_07.view.NoteView;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class NotesPresenter {
 
@@ -31,7 +32,7 @@ public class NotesPresenter {
         this.fileOperations = fileOperations;
     }
 
-    public void addNote(String text, Author author, LocalDateTime time) {
+    public void addNote(String text, Author author) {
         Note note = new Note(text, author);
         notebook.addNote(note);
         messageView.showMessage("Added notes" + text);
@@ -52,6 +53,17 @@ public class NotesPresenter {
         messageView.showMessage("Sorted notes by time");
         showAllNotes();
     }
+
+    public void getNotesForDay() {
+        List<Note> notesToday = notebook.getNotesForDay();
+        noteView.displayNotes(notesToday);
+    }
+
+    public void getNotesForWeek() {
+        List<Note> notesThisWeek = notebook.getNotesForWeek();
+        noteView.displayNotes(notesThisWeek);
+    }
+
 
     public void saveNotebook(String filename) {
         try {
@@ -79,34 +91,46 @@ public class NotesPresenter {
                 Author author = new Author(name);
                 messageView.showMessage("Enter note text");
                 String note = inputView.getUserInput();
-                messageView.showMessage("Enter time");
-                LocalDateTime time = LocalDateTime.now();
-                addNote(note, author, time);
+                addNote(note, author);
                 break;
+
             case "list":
                 showAllNotes();
                 break;
+
             case "sortByAuthor":
                 sortNotesByAuthor();
                 break;
+
             case "sortByTime":
                 sortNotesByTime();
                 break;
+
+            case "getNotesForDay":
+                getNotesForDay();
+                break;
+
+            case "getNotesForWeek(":
+                getNotesForWeek();
+                break;
+
             case "save":
                 messageView.showMessage("Enter file name");
-                saveNotebook(inputView.getUserInput());
+                String filename = inputView.getUserInput();
+                saveNotebook(filename);
                 break;
+
             case "load":
                 messageView.showMessage("Enter file name");
                 loadNotebook(inputView.getUserInput());
                 break;
-                case "exit":
-                    messageView.showMessage("Exit program - press 0");
-                    System.exit(0);
+
+            case "exit":
+                messageView.showMessage("Exit program");
+                System.exit(0);
+
             default:
                 messageView.showMessage("Invalid command");
         }
     }
-
-
 }

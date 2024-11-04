@@ -16,6 +16,5 @@ public class Main {
         CommandHandler commandHandler = new CommandHandler(presenter, view);
         commandHandler.handleUserInput();
     }
-
 }
 
